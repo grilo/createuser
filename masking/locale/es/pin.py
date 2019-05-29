@@ -28,9 +28,6 @@ class DNI(object):
 
         return check_digit == letters[int(pin) % 23]
 
-    def __init__(self, seed=0):
-        random.seed(seed) # This takes ALOT of time
-
     @property
     def value(self):
         pin_type = [
@@ -63,6 +60,7 @@ class DNI(object):
 
 
 if __name__ == '__main__':
+    random.seed(0)
     for x in range(1000):
-        #print "I", x
-        DNI(x).value
+        print DNI().value
+
